@@ -166,7 +166,7 @@ html, body {
 
 .alert {
     background-color: tomato;
-    height: 50px;
+    min-height: 30px;
     border-radius: 5px;
     padding: 15px;
 }
@@ -189,4 +189,55 @@ html, body {
 
 .alertClose:active {
     border: 1px solid tomato;
+}
+.popup {
+    position: absolute;
+    z-index: 3;
+    left: 10%;
+    right: 10%;
+    top: 30%;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    height: 200px;
+}
+
+.overlay {
+    position: fixed; /* Sit on top of the page content */
+     /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.329); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+.popupTitle {
+    text-align: center;
+}
+
+.popupButton {
+    width: 80px;
+    height: 40px;
+    margin-left: 50%;
+    transform:translateX(-40px) translateY(80px);
+    background-color: white;
+    border: lightgray solid 1px;
+    border-radius: 5px;
+    transition-duration: 0.2s;
+}
+
+.popupButton:hover {
+    cursor: pointer;
+    border: 1px solid tomato;
+}
+
+.popupButton:active {
+    cursor: pointer;
+    border: 1px solid tomato;
+    background-color: tomato;
 }

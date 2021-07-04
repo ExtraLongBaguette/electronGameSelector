@@ -45,10 +45,9 @@ function showAlert(text) {
             }
         }
 }
+
 function newElement() {
     gameList = document.getElementById("gameList");
-
-    console.log(gameCount);
     var li = document.createElement("li");
     var textInput = document.getElementById("textInput").value;
     if(textInput === "") {
@@ -90,4 +89,59 @@ function newElement() {
         }
 
     }
+}
+
+function rollGame() {
+    gameList = document.getElementById("gameList");
+    var gameDivs = document.querySelectorAll("#gameList li .listContent");
+    var gameCount = document.querySelectorAll("#gameList li").length;
+    if(gameCount < 2) {
+        showAlert("Please add at least two games!");
+        return;
+    }
+
+    var i;
+    var games = [];
+    for(i = 0; i < gameCount; i++) {
+        games.push(gameDivs[i].innerHTML);
+    }
+    var choice = games[Math.floor(Math.random()*gameCount)];
+    
+    var mainContainer = document.getElementsByClassName("mainContainer")[0];
+    var overlay = document.createElement("div");
+    
+    overlay.className = "overlay";
+    overlay.onclick = function() {
+        removePopup();
+    }
+    mainContainer.appendChild(overlay);
+    
+    var popup = document.createElement("div");
+
+    popup.className = "popup";
+
+    var h3 = document.createElement("h3");
+    h3.append(document.createTextNode(choice));
+    h3.className = "popupTitle";
+
+    popup.appendChild(h3);
+
+    
+    var button = document.createElement("button");
+    button.append(document.createTextNode("Okay"));
+    button.className = "popupButton";
+    button.setAttribute("onclick", "removePopup()");
+    popup.appendChild(button);
+    
+    
+    mainContainer.appendChild(popup);
+
+}
+
+function removePopup() {
+    var overlays = document.getElementsByClassName("overlay");
+    overlays[0].remove();
+    var popups = document.getElementsByClassName("popup");
+    popups[0].remove();
+    return;
 }
