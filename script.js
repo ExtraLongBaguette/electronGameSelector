@@ -13,6 +13,12 @@ window.onload = function() {
             newElement();
         }
     })
+
+    const electron = require('electron');
+    const ipc = electron.ipcRenderer;
+    document.getElementById("ghLink").addEventListener('click', () => {
+        const reply = ipc.send('openGithub', 'Sent from main Window')
+    })
 }
 function showAlert(text) {
     var alerts = document.getElementsByClassName("alertClose");
@@ -91,7 +97,7 @@ function newElement() {
     }
 }
 
-function rollGame() {
+function rollGame() {   
     gameList = document.getElementById("gameList");
     var gameDivs = document.querySelectorAll("#gameList li .listContent");
     var gameCount = document.querySelectorAll("#gameList li").length;
