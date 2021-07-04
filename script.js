@@ -35,6 +35,7 @@ function newElement() {
         span.className = "close";
 
         text.className = "listContent";
+
         li.appendChild(text);
 
         span.appendChild(t);

@@ -1,10 +1,27 @@
-body {
-    font-family:'Roboto', Courier, monospace
+
+html, body { 
+    font-family:'Roboto', Courier, monospace;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+.mainContainer {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    transition: 0.1s;
 }
 
 .title {
     text-align: center;
+    user-select: none;
 }
+
 .inputContainer {
     display: flex;
     padding: 10px;
@@ -12,6 +29,7 @@ body {
 
 .listContainer {
     padding: 10px;
+    flex-grow: 1;
 }
 
 #textInput {
@@ -22,6 +40,7 @@ body {
     outline: none;
     border: 1px solid lightgray;
     padding-left: 15px;
+    transition-duration: 0.5s;
 }
 
 #textInput:focus {
@@ -37,10 +56,12 @@ body {
     border: 1px solid lightgray;
     background-color: white;
     border-radius: 5px;
+    transition-duration: 0.5s;
 }
 
 #addButton:hover {
     border: solid 1px tomato;
+    cursor: pointer;
 }
 #addButton:active {
     border: solid 1px tomato;
@@ -63,26 +84,81 @@ body {
     position: relative;
     display: flex;
     margin-bottom: 5px;
+    user-select: none;
+    transition-duration: 0.5s;
+}
+
+#gameList li:hover {
+    border: solid 1px tomato;
+}
+
+#gameList li:hover .listContent {
+    text-align: left;
+}
+
+
+#gameList li:hover .close {
+    visibility: visible;
+    min-width: 20px;
+    margin-left: 5px;
+    color: black;
 }
 
 .close {
     float: right;
-    min-width: 20px;
+    min-width: 0;
+    width: 0;
     border: solid lightgray 1px;
     border-radius: 5px;
     text-align: center;
-    margin-left: 5px;
+    user-select: none;
+    visibility: hidden;
+    color: white;
+    transition-duration: 0.2s;
 }
 
 .close:hover {
+    border: 1px solid tomato;
+    cursor: pointer;
+}
+
+.close:active {
     border: 1px solid tomato;
     background-color: tomato;
     cursor: pointer;
 }
 
 .listContent {
-    flex-grow: 10;
+    flex-grow: 1;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    text-align: center;
+    
+}
+
+.bottomContainer {
+    height: 100px;
+    margin: auto auto;
+
+}
+
+#rollButton {
+    width: 80px;
+    height: 40px;
+    background-color: white;
+    border: solid 1px lightgrey;
+    border-radius: 5px;
+    transition-duration: 0.5s;
+}
+
+#rollButton:hover {
+    cursor: pointer;
+    border: 1px solid tomato;
+}
+
+#rollButton:active {
+    cursor: pointer;
+    border: 1px solid tomato;
+    background-color: tomato;
 }
