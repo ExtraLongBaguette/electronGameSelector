@@ -1,0 +1,88 @@
+body {
+    font-family:'Roboto', Courier, monospace
+}
+
+.title {
+    text-align: center;
+}
+.inputContainer {
+    display: flex;
+    padding: 10px;
+}
+
+.listContainer {
+    padding: 10px;
+}
+
+#textInput {
+    flex-grow: 5;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid lightgray;
+    padding-left: 15px;
+}
+
+#textInput:focus {
+    border: 1px solid tomato;
+}
+
+#textInput:hover {
+    border: 1px solid tomato;
+}
+
+#addButton {
+    flex-grow: 2;
+    border: 1px solid lightgray;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#addButton:hover {
+    border: solid 1px tomato;
+}
+#addButton:active {
+    border: solid 1px tomato;
+    background-color: tomato;
+}
+
+#gameList {
+    columns: 2;
+    list-style: none;
+    padding: 0;
+}
+
+#gameList li {
+    border: solid 1px lightgray;
+    border-radius: 10px;
+    padding: 10px;
+    height: 22px;
+    vertical-align: middle;
+    break-inside: avoid;
+    position: relative;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.close {
+    float: right;
+    min-width: 20px;
+    border: solid lightgray 1px;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.close:hover {
+    border: 1px solid tomato;
+    background-color: tomato;
+    cursor: pointer;
+}
+
+.listContent {
+    flex-grow: 10;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
