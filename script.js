@@ -14,16 +14,54 @@ window.onload = function() {
         }
     })
 }
+function showAlert(text) {
+    var alerts = document.getElementsByClassName("alertClose");
+    var i;
+    
+    for (i = 0; i < alerts.length; i++) {
+        alerts[i].parentElement.remove();
+    }
 
+
+    var alert = document.createElement("div");
+    alert.append(document.createTextNode(text));
+    alert.className = "alert";
+
+    var span = document.createElement("SPAN");
+    var t = document.createTextNode("\u00D7");
+    span.className = "alertClose";
+    span.append(t);
+    alert.appendChild(span);
+    
+    var mainContainer = document.getElementsByClassName("mainContainer")[0];
+    mainContainer.appendChild(alert);
+
+    var close = document.getElementsByClassName("alertClose");
+        var i;
+        for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+            var div = this.parentElement;
+            div.remove();
+            }
+        }
+}
 function newElement() {
     gameList = document.getElementById("gameList");
+
+    console.log(gameCount);
     var li = document.createElement("li");
     var textInput = document.getElementById("textInput").value;
     if(textInput === "") {
+        showAlert("Please enter a name!");
         return;
     }
     else 
     {
+        var gameCount = document.querySelectorAll("#gameList li").length;
+        if(gameCount > 7) {
+            showAlert("There can only be 8 games!");
+            return;
+        }
         document.getElementById("textInput").value = "";
         //li.append(document.createTextNode(textInput));
 
@@ -47,7 +85,7 @@ function newElement() {
         for (i = 0; i < close.length; i++) {
         close[i].onclick = function() {
             var div = this.parentElement;
-            div.style.display = "none";
+            div.remove();
             }
         }
 

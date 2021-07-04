@@ -70,6 +70,7 @@ html, body {
 
 #gameList {
     columns: 2;
+    column-gap: 5px;
     list-style: none;
     padding: 0;
 }
@@ -85,17 +86,12 @@ html, body {
     display: flex;
     margin-bottom: 5px;
     user-select: none;
-    transition-duration: 0.5s;
+    transition-duration: 0.2s;
 }
 
 #gameList li:hover {
     border: solid 1px tomato;
 }
-
-#gameList li:hover .listContent {
-    text-align: left;
-}
-
 
 #gameList li:hover .close {
     visibility: visible;
@@ -114,7 +110,12 @@ html, body {
     user-select: none;
     visibility: hidden;
     color: white;
-    transition-duration: 0.2s;
+    transition-duration: 0.05s;
+    transition-delay: 0.05s;
+    transition-property: color;
+    transition-property: min-width;
+    transition-delay: 0s;
+    transition-duration: 0.1s;
 }
 
 .close:hover {
@@ -161,4 +162,31 @@ html, body {
     cursor: pointer;
     border: 1px solid tomato;
     background-color: tomato;
+}
+
+.alert {
+    background-color: tomato;
+    height: 50px;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.alertClose {
+    float: right;
+    width: 18px;
+    text-align: center;
+    border-radius: 10px;
+    transition-duration: 0.2s;
+    user-select: none;
+}
+
+.alertClose:hover {
+    border: 1px solid white;
+
+    background-color: white;
+    cursor: pointer;
+}
+
+.alertClose:active {
+    border: 1px solid tomato;
 }
