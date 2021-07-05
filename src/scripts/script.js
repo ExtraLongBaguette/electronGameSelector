@@ -1,5 +1,11 @@
 var  gameList = null;
 
+window.onresize = function (){
+    if (window.outerWidth < 400 || window.outerHeight < 600){
+        window.resizeTo(400, 600);
+    }
+}
+
 window.onload = function() {
     gameList = document.getElementById("gameList");
     
@@ -13,13 +19,8 @@ window.onload = function() {
             newElement();
         }
     })
-
-    const electron = require('electron');
-    const ipc = electron.ipcRenderer;
-    document.getElementById("ghLink").addEventListener('click', () => {
-        const reply = ipc.send('openGithub', 'Sent from main Window')
-    })
 }
+
 function showAlert(text) {
     var alerts = document.getElementsByClassName("alertClose");
     var i;
@@ -151,3 +152,8 @@ function removePopup() {
     popups[0].remove();
     return;
 }
+
+function openGithub() {
+    eel.openGithub();
+}
+
